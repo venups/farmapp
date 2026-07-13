@@ -7,12 +7,13 @@ Build a complete “Travel Planner” website using the FARM stack:
 - Backend: FastAPI (Python)
 - Frontend: React
 - Database: MongoDB
+- Containerization: Docker & Docker Compose
 
 Goals:
 
 - Stunning “modern classic” UI (refined typography, muted premium colors, smooth but subtle animations).
 - Features: trips with dates and destinations, daily itineraries, budgets, packing/prep checklists, and a dashboard showing trip status and checklist completion.
-- Everything must run locally on my machine with standard Python + Node tooling.
+- Everything must run locally on my machine using standard Python + Node tooling, and must also be fully dockerized to build and run seamlessly with Docker and Docker Compose.
 - You should build multiple functionality similar to a professional wesbite with your best reasoning. Basic layout is not accetable.
 
 Constraints:
@@ -25,12 +26,12 @@ Constraints:
   - A checklist of TODO vs DONE.
 - Implement automated tests (at least basic backend and frontend tests) and actually run them.
 - Produce a detailed README that explains:
-  - Prerequisites.
+  - Prerequisites (including Docker and Docker Compose).
   - How to configure environment variables.
-  - How to install dependencies.
-  - How to start backend and frontend for local dev.
-  - How to run tests.
-  - How to do a quick end‑to‑end manual test (create trip, add checklist items, see them persist).
+  - How to install dependencies and run locally using standard Python + Node tooling.
+  - Exact, step-by-step instructions to build, launch, and access the application stack (database, backend, frontend) using Docker / Docker Compose.
+  - How to run tests (both locally and within the Docker environment).
+  - Exact instructions to open and test the web page for a quick end‑to‑end manual verification (e.g. accessing http://localhost:<port></port>, creating a trip, adding checklist items, and confirming they persist on reload).
 - At the end, verify:
   - Backend and frontend both start cleanly.
   - Core flows work (create trip, add checklist items, view dashboard).
@@ -38,10 +39,10 @@ Constraints:
 
 Failure handling and iteration:
 
-- Whenever something does not work (build error, runtime error, failing test, broken flow):
-  - Diagnose the problem.
+- Whenever something does not work (launch issues, container startup crashes, database connection failures, build error, runtime error, failing test, broken flow, or port conflicts):
+  - Diagnose the problem thoroughly (e.g. check logs, verify ports, check environment variables).
   - Attempt a fix.
-  - Re‑run the relevant command, server, or test.
+  - Re‑run the launch script, command, server, or test.
 - Keep iterating on each failing issue **at least 5 times** (or until it is fixed), unless it is clearly impossible due to environment limitations.
 - For each iteration, record in PROGRESS_LOG.md:
   - What failed.
@@ -88,12 +89,12 @@ Logging (for my manual model comparison later):
 
 Final validation:
 
-1. Start the backend and frontend in development mode and confirm they run without errors.
-2. Perform a manual end‑to‑end test:
+1. Start the backend and frontend in development mode (both via local dev servers and via Docker/Docker Compose) and confirm they run without errors.
+2. Perform a manual end‑to‑end test (verifying both the local run and the Docker run):
    - Create a new trip via the frontend.
    - Add checklist items.
    - Confirm data persistence and retrieval through the backend and MongoDB.
-3. Run automated tests for backend and frontend.
+3. Run automated tests for backend and frontend (both locally and within the Docker environment).
 4. Verify that README.md instructions match the actual commands and environment.
 5. Update PROGRESS_LOG.md with a final “Validation complete” entry.
 
