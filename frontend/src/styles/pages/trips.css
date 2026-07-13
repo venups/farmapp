@@ -1,0 +1,49 @@
+.trips-page {
+  padding: var(--header-height) var(--space-4) var(--space-8) calc(var(--sidebar-width) + var(--space-4));
+}
+
+.trips-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.trips-filters {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.trips-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-6);
+}
+
+.trip-card {
+  cursor: pointer;
+}
+
+.trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.pagination button {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.pagination button.active {
+  background-color: var(--color-primary);
+  color: white;
+}

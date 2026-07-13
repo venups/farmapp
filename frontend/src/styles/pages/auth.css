@@ -1,0 +1,108 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+}
+
+.auth-decorative {
+  flex: 1;
+  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-decorative::before {
+  content: "";
+  position: absolute;
+  width: var(--space-48);
+  height: var(--space-48);
+  background-color: rgba(99, 102, 241, 0.3);
+  border-radius: var(--radius-full);
+  animation: float 8s ease-in-out infinite;
+}
+
+.auth-decorative::after {
+  content: "";
+  position: absolute;
+  width: var(--space-32);
+  height: var(--space-32);
+  background-color: rgba(236, 72, 153, 0.3);
+  border-radius: var(--radius-full);
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.auth-form-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+}
+
+.auth-form {
+  width: 100%;
+  max-width: var(--space-96);
+}
+
+.auth-logo {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.auth-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: var(--space-2);
+}
+
+.auth-features {
+  list-style: none;
+  margin-top: var(--space-8);
+}
+
+.auth-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.password-strength {
+  height: 4px;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: var(--space-2);
+}
+
+.password-strength-bar {
+  height: 100%;
+  width: 0;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.password-strength-bar.weak {
+  width: 33%;
+  background-color: var(--color-error);
+}
+
+.password-strength-bar.medium {
+  width: 66%;
+  background-color: var(--color-warning);
+}
+
+.password-strength-bar.strong {
+  width: 100%;
+  background-color: var(--color-accent);
+}

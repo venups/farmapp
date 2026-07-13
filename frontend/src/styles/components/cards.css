@@ -1,0 +1,90 @@
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-sm {
+  padding: var(--space-4);
+}
+
+.card-md {
+  padding: var(--space-6);
+}
+
+.card-lg {
+  padding: var(--space-8);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stat-card .stat-value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.stat-card .stat-label {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.trip-card {
+  overflow: hidden;
+}
+
+.trip-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.trip-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.trip-card-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-tertiary);
+  font-size: var(--font-size-sm);
+}
+
+.activity-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.activity-card .activity-time {
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
+  min-width: 80px;
+}
+
+.expense-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.expense-card .expense-amount {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+}

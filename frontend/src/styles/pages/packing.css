@@ -1,0 +1,60 @@
+.packing-page {
+  padding: var(--header-height) var(--space-4) var(--space-8) calc(var(--sidebar-width) + var(--space-4));
+}
+
+.packing-progress {
+  margin-bottom: var(--space-6);
+}
+
+.progress-bar {
+  height: 12px;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-normal);
+}
+
+.packing-categories {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  margin-bottom: var(--space-6);
+}
+
+.packing-category {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+}
+
+.packing-category.active {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.packing-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+.packing-item input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+}
+
+.packing-item .item-name {
+  flex: 1;
+}
+
+.packing-item.packed .item-name {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

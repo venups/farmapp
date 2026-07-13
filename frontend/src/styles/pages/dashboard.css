@@ -1,0 +1,59 @@
+.dashboard {
+  padding: var(--header-height) var(--space-4) var(--space-8) calc(var(--sidebar-width) + var(--space-4));
+}
+
+.dashboard-collapsed .dashboard {
+  padding: var(--header-height) var(--space-4) var(--space-8) calc(var(--sidebar-collapsed-width) + var(--space-4));
+}
+
+.dashboard-greeting {
+  margin-bottom: var(--space-8);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.upcoming-trips {
+  margin-bottom: var(--space-8);
+}
+
+.upcoming-trips-title {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-4);
+}
+
+.upcoming-trips-list {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-4);
+}
+
+.upcoming-trips-list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.upcoming-trips-list::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: var(--radius-full);
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+.quick-action-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.quick-action-card .action-icon {
+  font-size: var(--font-size-2xl);
+}

@@ -1,0 +1,168 @@
+
+> frontend@0.0.0 build
+> tsc -b && vite build
+
+tsconfig.node.json(12,35): error TS5096: Option 'allowImportingTsExtensions' can only be used when one of 'noEmit', 'emitDeclarationOnly', or 'rewriteRelativeImportExtensions' is set.
+src/App.tsx(3,30): error TS2307: Cannot find module '@/context/AuthContext' or its corresponding type declarations.
+src/App.tsx(4,32): error TS2307: Cannot find module '@/components/common/ProtectedRoute' or its corresponding type declarations.
+src/App.tsx(5,24): error TS2307: Cannot find module '@/components/layout/Layout' or its corresponding type declarations.
+src/App.tsx(8,27): error TS2307: Cannot find module '@/pages/LoginPage' or its corresponding type declarations.
+src/App.tsx(9,30): error TS2307: Cannot find module '@/pages/RegisterPage' or its corresponding type declarations.
+src/App.tsx(10,31): error TS2307: Cannot find module '@/pages/DashboardPage' or its corresponding type declarations.
+src/App.tsx(11,27): error TS2307: Cannot find module '@/pages/TripsPage' or its corresponding type declarations.
+src/App.tsx(12,32): error TS2307: Cannot find module '@/pages/TripDetailPage' or its corresponding type declarations.
+src/App.tsx(13,32): error TS2307: Cannot find module '@/pages/TripCreatePage' or its corresponding type declarations.
+src/App.tsx(14,30): error TS2307: Cannot find module '@/pages/TripEditPage' or its corresponding type declarations.
+src/App.tsx(15,31): error TS2307: Cannot find module '@/pages/ItineraryPage' or its corresponding type declarations.
+src/App.tsx(16,30): error TS2307: Cannot find module '@/pages/ExpensesPage' or its corresponding type declarations.
+src/App.tsx(17,29): error TS2307: Cannot find module '@/pages/PackingPage' or its corresponding type declarations.
+src/App.tsx(18,29): error TS2307: Cannot find module '@/pages/ProfilePage' or its corresponding type declarations.
+src/App.tsx(19,30): error TS2307: Cannot find module '@/pages/NotFoundPage' or its corresponding type declarations.
+src/components/common/ProtectedRoute.tsx(2,25): error TS2307: Cannot find module '@/context/AuthContext' or its corresponding type declarations.
+src/components/common/SearchInput.tsx(4,11): error TS2430: Interface 'SearchInputProps' incorrectly extends interface 'InputHTMLAttributes<HTMLInputElement>'.
+  Types of property 'onSubmit' are incompatible.
+    Type '((value: string) => void) | undefined' is not assignable to type 'SubmitEventHandler<HTMLInputElement> | undefined'.
+      Type '(value: string) => void' is not assignable to type 'SubmitEventHandler<HTMLInputElement>'.
+        Types of parameters 'value' and 'event' are incompatible.
+          Type 'SubmitEvent<HTMLInputElement>' is not assignable to type 'string'.
+src/components/common/SearchInput.tsx(26,16): error TS2345: Argument of type 'string | number | readonly string[]' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+src/components/common/Tabs.tsx(36,28): error TS2339: Property 'offsetLeft' does not exist on type 'Element'.
+src/components/common/Tabs.tsx(37,29): error TS2339: Property 'offsetWidth' does not exist on type 'Element'.
+src/components/common/TextArea.tsx(12,20): error TS2339: Property 'helperText' does not exist on type 'TextAreaProps'.
+src/components/expenses/ExpenseCard.tsx(4,45): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/expenses/ExpenseCard.tsx(19,37): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/expenses/ExpenseChart.tsx(15,32): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/expenses/ExpenseChart.tsx(35,33): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/components/expenses/ExpenseForm.tsx(2,25): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/expenses/ExpenseForm.tsx(8,51): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/expenses/ExpenseForm.tsx(89,42): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/itinerary/ActivityCard.tsx(2,10): error TS2305: Module '"lucide-react"' has no exported member 'DragHandleDots2'.
+src/components/itinerary/ActivityCard.tsx(4,47): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/itinerary/ActivityCard.tsx(21,38): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/itinerary/ActivityForm.tsx(2,25): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/itinerary/ActivityForm.tsx(8,53): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/itinerary/ActivityForm.tsx(86,43): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/itinerary/DayColumn.tsx(5,26): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/layout/Layout.tsx(4,25): error TS2307: Cannot find module '@/context/AuthContext' or its corresponding type declarations.
+src/components/maps/TripMap.tsx(4,8): error TS2882: Cannot find module or type declarations for side-effect import of 'leaflet/dist/leaflet.css'.
+src/components/maps/TripMap.tsx(101,41): error TS2345: Argument of type 'string | null | undefined' is not assignable to parameter of type 'string | null'.
+  Type 'undefined' is not assignable to type 'string | null'.
+src/components/maps/TripMap.tsx(101,77): error TS2345: Argument of type 'string | null | undefined' is not assignable to parameter of type 'string | null'.
+  Type 'undefined' is not assignable to type 'string | null'.
+src/components/maps/TripMap.tsx(114,13): error TS2322: Type '{ children: null; onEachLayer: (layer: any) => any; }' is not assignable to type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+  Property 'onEachLayer' does not exist on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'.
+src/components/maps/TripMap.tsx(114,27): error TS7006: Parameter 'layer' implicitly has an 'any' type.
+src/components/packing/PackingCategory.tsx(5,49): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/packing/PackingCategory.tsx(25,37): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/packing/PackingForm.tsx(2,25): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/packing/PackingForm.tsx(8,55): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/packing/PackingForm.tsx(64,42): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/packing/PackingItemRow.tsx(60,12): error TS2304: Cannot find name 'Badge'.
+src/components/packing/PackingItemRow.tsx(62,13): error TS2304: Cannot find name 'Badge'.
+src/components/trips/TripCard.tsx(4,31): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/trips/TripCard.tsx(39,32): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/components/trips/TripForm.tsx(2,25): error TS2307: Cannot find module 'react-hook-form' or its corresponding type declarations.
+src/components/trips/TripForm.tsx(8,55): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/components/trips/TripForm.tsx(113,34): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/components/trips/TripForm.tsx(121,24): error TS7006: Parameter 'v' implicitly has an 'any' type.
+src/components/trips/TripForm.tsx(121,52): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/components/trips/TripStatusBadge.tsx(3,28): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/context/ActivitiesContext.tsx(3,33): error TS2307: Cannot find module '@/services/activityService' or its corresponding type declarations.
+src/context/ActivitiesContext.tsx(4,63): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/context/ActivitiesContext.tsx(94,29): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/context/AuthContext.tsx(3,29): error TS2307: Cannot find module '@/services/authService' or its corresponding type declarations.
+src/context/AuthContext.tsx(4,71): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/context/ExpensesContext.tsx(3,32): error TS2307: Cannot find module '@/services/expenseService' or its corresponding type declarations.
+src/context/ExpensesContext.tsx(4,76): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/context/PackingContext.tsx(3,32): error TS2307: Cannot find module '@/services/packingService' or its corresponding type declarations.
+src/context/PackingContext.tsx(4,74): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/context/TripsContext.tsx(3,29): error TS2307: Cannot find module '@/services/tripService' or its corresponding type declarations.
+src/context/TripsContext.tsx(4,69): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/main.tsx(4,8): error TS2882: Cannot find module or type declarations for side-effect import of './styles/index.css'.
+src/pages/DashboardPage.tsx(4,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/DashboardPage.tsx(5,19): error TS2307: Cannot find module '@/components/common/Badge' or its corresponding type declarations.
+src/pages/DashboardPage.tsx(6,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/DashboardPage.tsx(7,31): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/pages/DashboardPage.tsx(8,25): error TS2307: Cannot find module '@/context/AuthContext' or its corresponding type declarations.
+src/pages/DashboardPage.tsx(9,26): error TS2307: Cannot find module '@/context/TripsContext' or its corresponding type declarations.
+src/pages/DashboardPage.tsx(165,44): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/pages/ExpensesPage.tsx(2,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/ExpensesPage.tsx(3,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/ExpensesPage.tsx(4,28): error TS2307: Cannot find module '@/components/expenses/BudgetProgress' or its corresponding type declarations.
+src/pages/ExpensesPage.tsx(5,26): error TS2307: Cannot find module '@/components/expenses/ExpenseChart' or its corresponding type declarations.
+src/pages/ExpensesPage.tsx(6,25): error TS2307: Cannot find module '@/components/expenses/ExpenseForm' or its corresponding type declarations.
+src/pages/ExpensesPage.tsx(181,25): error TS2307: Cannot find module '@/components/expenses/ExpenseCard' or its corresponding type declarations.
+src/pages/ItineraryPage.tsx(4,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/ItineraryPage.tsx(5,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/ItineraryPage.tsx(6,23): error TS2307: Cannot find module '@/components/itinerary/DayColumn' or its corresponding type declarations.
+src/pages/ItineraryPage.tsx(7,26): error TS2307: Cannot find module '@/components/itinerary/ActivityForm' or its corresponding type declarations.
+src/pages/ItineraryPage.tsx(105,9): error TS2451: Cannot redeclare block-scoped variable 'handleDeleteActivity'.
+src/pages/ItineraryPage.tsx(110,9): error TS2451: Cannot redeclare block-scoped variable 'handleDeleteActivity'.
+src/pages/LoginPage.tsx(4,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/LoginPage.tsx(5,25): error TS2307: Cannot find module '@/context/AuthContext' or its corresponding type declarations.
+src/pages/NotFoundPage.tsx(2,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/PackingPage.tsx(2,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/PackingPage.tsx(3,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/PackingPage.tsx(4,25): error TS2307: Cannot find module '@/components/common/ProgressBar' or its corresponding type declarations.
+src/pages/PackingPage.tsx(5,25): error TS2307: Cannot find module '@/components/packing/PackingForm' or its corresponding type declarations.
+src/pages/PackingPage.tsx(88,5): error TS2304: Cannot find name 'toast'.
+src/pages/PackingPage.tsx(102,5): error TS2304: Cannot find name 'toast'.
+src/pages/PackingPage.tsx(157,12): error TS2304: Cannot find name 'PackingCategory'.
+src/pages/PackingPage.tsx(193,21): error TS2307: Cannot find module 'lucide-react/package' or its corresponding type declarations.
+src/pages/ProfilePage.tsx(2,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/ProfilePage.tsx(3,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/ProfilePage.tsx(4,20): error TS2307: Cannot find module '@/components/common/Avatar' or its corresponding type declarations.
+src/pages/RegisterPage.tsx(4,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/RegisterPage.tsx(5,25): error TS2307: Cannot find module '@/context/AuthContext' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(3,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(4,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(5,19): error TS2307: Cannot find module '@/components/common/Input' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(6,20): error TS2307: Cannot find module '@/components/common/Select' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(7,22): error TS2307: Cannot find module '@/components/common/TextArea' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(8,43): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(9,26): error TS2307: Cannot find module '@/context/TripsContext' or its corresponding type declarations.
+src/pages/TripCreatePage.tsx(74,26): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripCreatePage.tsx(86,26): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripCreatePage.tsx(98,26): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripCreatePage.tsx(109,26): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripCreatePage.tsx(150,28): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripCreatePage.tsx(161,28): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripCreatePage.tsx(162,42): error TS7006: Parameter 'c' implicitly has an 'any' type.
+src/pages/TripDetailPage.tsx(3,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(4,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(5,19): error TS2307: Cannot find module '@/components/common/Badge' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(6,18): error TS2307: Cannot find module '@/components/common/Tabs' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(7,28): error TS2307: Cannot find module '@/components/expenses/BudgetProgress' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(8,26): error TS2307: Cannot find module '@/components/expenses/ExpenseChart' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(9,29): error TS2307: Cannot find module '@/components/packing/PackingCategory' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(10,21): error TS2307: Cannot find module '@/components/maps/TripMap' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(11,26): error TS2307: Cannot find module '@/components/photos/PhotoGallery' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(12,27): error TS2307: Cannot find module '@/components/common/ConfirmDialog' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(13,80): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(14,26): error TS2307: Cannot find module '@/context/TripsContext' or its corresponding type declarations.
+src/pages/TripDetailPage.tsx(34,32): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/pages/TripEditPage.tsx(4,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/TripEditPage.tsx(5,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/TripEditPage.tsx(6,22): error TS2307: Cannot find module '@/components/trips/TripForm' or its corresponding type declarations.
+src/pages/TripsPage.tsx(3,18): error TS2307: Cannot find module '@/components/common/Card' or its corresponding type declarations.
+src/pages/TripsPage.tsx(4,20): error TS2307: Cannot find module '@/components/common/Button' or its corresponding type declarations.
+src/pages/TripsPage.tsx(5,19): error TS2307: Cannot find module '@/components/common/Badge' or its corresponding type declarations.
+src/pages/TripsPage.tsx(6,19): error TS2307: Cannot find module '@/components/common/Input' or its corresponding type declarations.
+src/pages/TripsPage.tsx(7,20): error TS2307: Cannot find module '@/components/common/Select' or its corresponding type declarations.
+src/pages/TripsPage.tsx(8,24): error TS2307: Cannot find module '@/components/common/EmptyState' or its corresponding type declarations.
+src/pages/TripsPage.tsx(9,31): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/pages/TripsPage.tsx(10,26): error TS2307: Cannot find module '@/context/TripsContext' or its corresponding type declarations.
+src/pages/TripsPage.tsx(57,32): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/pages/TripsPage.tsx(79,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripsPage.tsx(86,37): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/pages/TripsPage.tsx(89,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/pages/TripsPage.tsx(101,24): error TS7006: Parameter 'e' implicitly has an 'any' type.
+src/services/activityService.ts(2,63): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/services/api.ts(4,34): error TS2339: Property 'env' does not exist on type 'ImportMeta'.
+src/services/authService.ts(2,85): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/services/expenseService.ts(2,76): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/services/index.ts(1,10): error TS2614: Module '"./api"' has no exported member 'api'. Did you mean to use 'import api from "./api"' instead?
+src/services/index.ts(9,27): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/services/packingService.ts(2,93): error TS2307: Cannot find module '@/types' or its corresponding type declarations.
+src/services/tripService.ts(2,69): error TS2307: Cannot find module '@/types' or its corresponding type declarations.

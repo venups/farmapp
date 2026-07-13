@@ -1,0 +1,79 @@
+/Users/venu/Documents/GitHub/farmapp/backend/venv/lib/python3.9/site-packages/pytest_asyncio/plugin.py:207: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.3.4, pluggy-1.6.0 -- /Users/venu/Documents/GitHub/farmapp/backend/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/venu/Documents/GitHub/farmapp/backend
+plugins: anyio-4.12.1, asyncio-0.25.0
+asyncio: mode=strict, asyncio_default_fixture_loop_scope=None
+collecting ... collected 47 items
+
+tests/test_auth.py::TestAuthEndpoints::test_register_success PASSED      [  2%]
+tests/test_auth.py::TestAuthEndpoints::test_register_duplicate_email PASSED [  4%]
+tests/test_auth.py::TestAuthEndpoints::test_register_weak_password PASSED [  6%]
+tests/test_auth.py::TestAuthEndpoints::test_register_invalid_email PASSED [  8%]
+tests/test_auth.py::TestAuthEndpoints::test_login_success PASSED         [ 10%]
+tests/test_auth.py::TestAuthEndpoints::test_login_wrong_password PASSED  [ 12%]
+tests/test_auth.py::TestAuthEndpoints::test_login_nonexistent_user PASSED [ 14%]
+tests/test_auth.py::TestAuthEndpoints::test_get_me_authenticated PASSED  [ 17%]
+tests/test_auth.py::TestAuthEndpoints::test_get_me_unauthenticated PASSED [ 19%]
+tests/test_auth.py::TestAuthEndpoints::test_verify_token_valid PASSED    [ 21%]
+tests/test_auth.py::TestAuthEndpoints::test_verify_token_invalid PASSED  [ 23%]
+tests/test_health.py::TestHealthEndpoints::test_root_endpoint PASSED     [ 25%]
+tests/test_health.py::TestHealthEndpoints::test_health_endpoint PASSED   [ 27%]
+tests/test_helpers.py::TestHelpers::test_generate_id PASSED              [ 29%]
+tests/test_helpers.py::TestHelpers::test_sanitize_filename PASSED        [ 31%]
+tests/test_helpers.py::TestHelpers::test_validate_image_file PASSED      [ 34%]
+tests/test_helpers.py::TestHelpers::test_format_file_size PASSED         [ 36%]
+tests/test_security.py::TestSecurity::test_password_hashing PASSED       [ 38%]
+tests/test_security.py::TestSecurity::test_jwt_token_creation PASSED     [ 40%]
+tests/test_security.py::TestSecurity::test_jwt_token_decode PASSED       [ 42%]
+tests/test_security.py::TestSecurity::test_jwt_invalid_token PASSED      [ 44%]
+tests/test_security.py::TestSecurity::test_jwt_different_passwords_different_hashes PASSED [ 46%]
+tests/test_trips.py::TestTripEndpoints::test_create_trip PASSED          [ 48%]
+tests/test_trips.py::TestTripEndpoints::test_create_trip_unauthenticated PASSED [ 51%]
+tests/test_trips.py::TestTripEndpoints::test_create_trip_invalid_dates PASSED [ 53%]
+tests/test_trips.py::TestTripEndpoints::test_create_trip_missing_required_fields PASSED [ 55%]
+tests/test_trips.py::TestTripEndpoints::test_list_trips PASSED           [ 57%]
+tests/test_trips.py::TestTripEndpoints::test_list_trips_with_pagination PASSED [ 59%]
+tests/test_trips.py::TestTripEndpoints::test_list_trips_with_status_filter PASSED [ 61%]
+tests/test_trips.py::TestTripEndpoints::test_get_nonexistent_trip PASSED [ 63%]
+tests/test_trips.py::TestTripEndpoints::test_delete_trip_unauthenticated PASSED [ 65%]
+tests/test_validation.py::TestUserSchemaValidation::test_valid_user PASSED [ 68%]
+tests/test_validation.py::TestUserSchemaValidation::test_invalid_email PASSED [ 70%]
+tests/test_validation.py::TestUserSchemaValidation::test_short_password PASSED [ 72%]
+tests/test_validation.py::TestUserSchemaValidation::test_password_no_uppercase PASSED [ 74%]
+tests/test_validation.py::TestUserSchemaValidation::test_password_no_number PASSED [ 76%]
+tests/test_validation.py::TestUserSchemaValidation::test_short_username PASSED [ 78%]
+tests/test_validation.py::TestTripSchemaValidation::test_valid_trip PASSED [ 80%]
+tests/test_validation.py::TestTripSchemaValidation::test_end_before_start PASSED [ 82%]
+tests/test_validation.py::TestTripSchemaValidation::test_empty_title PASSED [ 85%]
+tests/test_validation.py::TestTripSchemaValidation::test_negative_budget PASSED [ 87%]
+tests/test_validation.py::TestActivitySchemaValidation::test_valid_activity PASSED [ 89%]
+tests/test_validation.py::TestActivitySchemaValidation::test_invalid_category PASSED [ 91%]
+tests/test_validation.py::TestActivitySchemaValidation::test_zero_day_number PASSED [ 93%]
+tests/test_validation.py::TestExpenseSchemaValidation::test_valid_expense PASSED [ 95%]
+tests/test_validation.py::TestExpenseSchemaValidation::test_zero_amount PASSED [ 97%]
+tests/test_validation.py::TestExpenseSchemaValidation::test_negative_amount PASSED [100%]
+
+=============================== warnings summary ===============================
+venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:295
+  /Users/venu/Documents/GitHub/farmapp/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:295: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.10/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+tests/test_auth.py::TestAuthEndpoints::test_register_success
+  /Users/venu/Documents/GitHub/farmapp/backend/venv/lib/python3.9/site-packages/pytest_asyncio/plugin.py:854: DeprecationWarning: The event_loop fixture provided by pytest-asyncio has been redefined in
+  /Users/venu/Documents/GitHub/farmapp/backend/tests/conftest.py:10
+  Replacing the event_loop fixture with a custom implementation is deprecated
+  and will lead to errors in the future.
+  If you want to request an asyncio event loop with a scope other than function
+  scope, use the "scope" argument to the asyncio mark when marking the tests.
+  If you want to return different types of event loops, use the event_loop_policy
+  fixture.
+  
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 47 passed, 2 warnings in 0.94s ========================

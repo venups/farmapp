@@ -1,0 +1,36 @@
+.itinerary-builder {
+  display: flex;
+  overflow-x: auto;
+  padding: var(--header-height) var(--space-4) var(--space-8) calc(var(--sidebar-width) + var(--space-4));
+  gap: var(--space-6);
+}
+
+.day-column {
+  min-width: 300px;
+  border-radius: var(--radius-lg);
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.day-header .day-number {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.activity-list {
+  min-height: var(--space-64);
+}
+
+.add-activity-btn {
+  width: 100%;
+  border-style: dashed;
+}
+
+.drag-handle {
+  cursor: grab;
+}

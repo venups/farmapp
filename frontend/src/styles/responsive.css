@@ -1,0 +1,121 @@
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .trips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .expense-charts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sidebar-collapsed ~ .header {
+    left: var(--sidebar-collapsed-width);
+  }
+  
+  .quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .trips-header {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    display: flex;
+  }
+  
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  .auth-page {
+    flex-direction: row;
+  }
+  
+  .auth-decorative {
+    display: flex;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .expense-charts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .dashboard-collapsed .dashboard {
+    padding: var(--header-height) var(--space-4) var(--space-8) calc(var(--sidebar-collapsed-width) + var(--space-4));
+  }
+  
+  .search-input {
+    width: 200px;
+  }
+  
+  .sidebar-nav-item span,
+  .sidebar-header span {
+    opacity: 1;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .sidebar-collapsed {
+    width: var(--sidebar-collapsed-width);
+  }
+  
+  .sidebar-collapsed .sidebar-logo span,
+  .sidebar-collapsed .sidebar-header span,
+  .sidebar-collapsed .sidebar-footer {
+    opacity: 0;
+  }
+  
+  .sidebar-collapsed ~ .header {
+    left: var(--sidebar-collapsed-width);
+  }
+  
+  .itinerary-builder {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .trips-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .expense-charts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .quick-actions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .itinerary-builder {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+  .stats-grid {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+  }
+  
+  .dashboard {
+    max-width: calc(var(--max-content-width) - var(--sidebar-width));
+  }
+  
+  .dashboard-collapsed .dashboard {
+    max-width: calc(var(--max-content-width) - var(--sidebar-collapsed-width));
+  }
+}

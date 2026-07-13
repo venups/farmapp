@@ -1,0 +1,45 @@
+/Users/venu/Documents/GitHub/farmapp/backend/venv/lib/python3.9/site-packages/pytest_asyncio/plugin.py:207: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts ==============================
+platform darwin -- Python 3.9.6, pytest-8.3.4, pluggy-1.6.0 -- /Users/venu/Documents/GitHub/farmapp/backend/venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/venu/Documents/GitHub/farmapp/backend
+plugins: anyio-4.12.1, asyncio-0.25.0
+asyncio: mode=strict, asyncio_default_fixture_loop_scope=None
+collecting ... collected 25 items
+
+tests/test_validation.py::TestUserSchemaValidation::test_valid_user PASSED [  4%]
+tests/test_validation.py::TestUserSchemaValidation::test_invalid_email PASSED [  8%]
+tests/test_validation.py::TestUserSchemaValidation::test_short_password PASSED [ 12%]
+tests/test_validation.py::TestUserSchemaValidation::test_password_no_uppercase PASSED [ 16%]
+tests/test_validation.py::TestUserSchemaValidation::test_password_no_number PASSED [ 20%]
+tests/test_validation.py::TestUserSchemaValidation::test_short_username PASSED [ 24%]
+tests/test_validation.py::TestTripSchemaValidation::test_valid_trip PASSED [ 28%]
+tests/test_validation.py::TestTripSchemaValidation::test_end_before_start PASSED [ 32%]
+tests/test_validation.py::TestTripSchemaValidation::test_empty_title PASSED [ 36%]
+tests/test_validation.py::TestTripSchemaValidation::test_negative_budget PASSED [ 40%]
+tests/test_validation.py::TestActivitySchemaValidation::test_valid_activity PASSED [ 44%]
+tests/test_validation.py::TestActivitySchemaValidation::test_invalid_category PASSED [ 48%]
+tests/test_validation.py::TestActivitySchemaValidation::test_zero_day_number PASSED [ 52%]
+tests/test_validation.py::TestExpenseSchemaValidation::test_valid_expense PASSED [ 56%]
+tests/test_validation.py::TestExpenseSchemaValidation::test_zero_amount PASSED [ 60%]
+tests/test_validation.py::TestExpenseSchemaValidation::test_negative_amount PASSED [ 64%]
+tests/test_security.py::TestSecurity::test_password_hashing PASSED       [ 68%]
+tests/test_security.py::TestSecurity::test_jwt_token_creation PASSED     [ 72%]
+tests/test_security.py::TestSecurity::test_jwt_token_decode PASSED       [ 76%]
+tests/test_security.py::TestSecurity::test_jwt_invalid_token PASSED      [ 80%]
+tests/test_security.py::TestSecurity::test_jwt_different_passwords_different_hashes PASSED [ 84%]
+tests/test_helpers.py::TestHelpers::test_generate_id PASSED              [ 88%]
+tests/test_helpers.py::TestHelpers::test_sanitize_filename PASSED        [ 92%]
+tests/test_helpers.py::TestHelpers::test_validate_image_file PASSED      [ 96%]
+tests/test_helpers.py::TestHelpers::test_format_file_size PASSED         [100%]
+
+=============================== warnings summary ===============================
+venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:295
+  /Users/venu/Documents/GitHub/farmapp/backend/venv/lib/python3.9/site-packages/pydantic/_internal/_config.py:295: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.10/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 25 passed, 1 warning in 0.88s =========================

@@ -1,0 +1,198 @@
+import { useState, useEffect } from 'react';
+import Card from '@/components/common/Card';
+import Button from '@/components/common/Button';
+import ProgressBar from '@/components/common/ProgressBar';
+import PackingForm from '@/components/packing/PackingForm';
+import PackingCategory from '@/components/packing/PackingCategory';
+import Badge from '@/components/common/Badge';
+
+interface PackingItem {
+  id: string;
+  trip_id: string;
+  name: string;
+  category: string;
+  quantity: number;
+  is_packed: boolean;
+  is_essential: boolean;
+}
+
+export function PackingPage({ tripId }: { tripId: string }) {
+  const [items, setItems] = useState<PackingItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [showPackingForm, setShowPackingForm] = useState(false);
+  const [templatesModalOpen, setTemplatesModalOpen] = useState(false);
+
+  useEffect(() => {
+    fetchPackingList();
+  }, [tripId]);
+
+  const fetchPackingList = async () => {
+    setIsLoading(true);
+    console.log('Fetching packing list for trip:', tripId);
+    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    const mockItems: PackingItem[] = [
+      {
+        id: '1',
+        trip_id: tripId,
+        name: 'Passport',
+        category: 'documents',
+        quantity: 1,
+        is_packed: true,
+        is_essential: true,
+      },
+      {
+        id: '2',
+        trip_id: tripId,
+        name: 'Credit cards',
+        category: 'accessories',
+        quantity: 2,
+        is_packed: false,
+        is_essential: true,
+      },
+      {
+        id: '3',
+        trip_id: tripId,
+        name: 'T-shirts',
+        category: 'clothing',
+        quantity: 5,
+        is_packed: false,
+        is_essential: false,
+      },
+      {
+        id: '4',
+        trip_id: tripId,
+        name: 'Toothbrush',
+        category: 'toiletries',
+        quantity: 1,
+        is_packed: false,
+        is_essential: true,
+      },
+      {
+        id: '5',
+        trip_id: tripId,
+        name: 'Camera',
+        category: 'electronics',
+        quantity: 1,
+        is_packed: false,
+        is_essential: false,
+      },
+    ];
+
+    setItems(mockItems);
+    setIsLoading(false);
+  };
+
+  const handleToggleItem = async (id: string) => {
+    console.log('Toggling item:', id);
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    toast.success('Packing list updated!');
+  };
+
+  const handleEditItem = async (item: PackingItem) => {
+    console.log('Editing item:', item.id);
+  };
+
+  const handleDeleteItem = async (id: string) => {
+    console.log('Deleting item:', id);
+  };
+
+  const handleAddItem = async (data: any) => {
+    console.log('Item submitted:', data);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    toast.success('Item added successfully!');
+    setShowPackingForm(false);
+    fetchPackingList();
+  };
+
+  const packedCount = items.filter((i) => i.is_packed).length;
+  const totalCount = items.length;
+  const progress = totalCount > 0 ? Math.round((packedCount / totalCount) * 100) : 0;
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
+      </div>
+    );
+  }
+
+  const groupedByCategory: Record<string, PackingItem[]> = {};
+  items.forEach((item) => {
+    if (!groupedByCategory[item.category]) {
+      groupedByCategory[item.category] = [];
+    }
+    groupedByCategory[item.category].push(item);
+  });
+
+  return (
+    <div className="space-y-6">
+      <Card padding="lg" className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div>
+          <h1 className="text-3xl font-bold text-white">Packing List</h1>
+          <p className="text-slate-400 mt-1">Get ready for your trip</p>
+        </div>
+
+        <div className="w-full md:w-64">
+          <ProgressBar value={progress} size="sm" />
+        </div>
+
+        <div className="flex gap-2">
+          <Button variant="secondary" onClick={() => setTemplatesModalOpen(true)}>
+            Add Template
+          </Button>
+          <Button icon={<Plus size={18} />} onClick={() => setShowPackingForm(true)}>
+            Add Item
+          </Button>
+        </div>
+
+        <div className="flex gap-4 text-sm">
+          <span>
+            <strong className="text-emerald-400">{packedCount}</strong> of {totalCount} items packed
+          </span>
+        </div>
+      </Card>
+
+      <div className="space-y-4">
+        {Object.entries(groupedByCategory).map(([category, categoryItems]) => (
+          <PackingCategory
+            key={category}
+            category={category}
+            items={categoryItems}
+            onToggle={handleToggleItem}
+            onEdit={handleEditItem}
+            onDelete={handleDeleteItem}
+          />
+        ))}
+
+        {items.length === 0 && (
+                  <Card className="text-center py-16">
+            <div className="mb-4 p-4 rounded-full bg-slate-800 inline-flex">
+              <Package className="text-slate-400" size={32} />
+            </div>
+            <h3 className="text-lg font-medium text-white mb-2">No packing items yet</h3>
+            <p className="text-slate-400 mb-6">
+              Start building your packing list for this trip!
+            </p>
+            <Button onClick={() => setShowPackingForm(true)} icon={<Plus size={18} />}>
+              Add First Item
+            </Button>
+          </Card>
+        )}
+      </div>
+
+      <PackingForm
+        tripId={tripId}
+        onSubmit={handleAddItem}
+        isOpen={showPackingForm}
+        onClose={() => setShowPackingForm(false)}
+      />
+    </div>
+  );
+}
+
+import Package from 'lucide-react/package';
+import { Plus } from 'lucide-react';
+
+export default PackingPage;

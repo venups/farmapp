@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: tripforge-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: tripforge
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: tripforge-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    environment:
+      MONGODB_URL: mongodb://mongodb:27017
+      DATABASE_NAME: tripforge
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY:-tripforge-docker-secret-change-me}
+      JWT_ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 1440
+      FRONTEND_URL: http://localhost:3000
+      UPLOAD_DIR: /app/uploads
+      MAX_UPLOAD_SIZE_MB: 10
+    volumes:
+      - uploads_data:/app/uploads
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: tripforge-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:
+    driver: local
+  uploads_data:
+    driver: local

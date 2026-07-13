@@ -1,0 +1,26 @@
+.profile-page {
+  padding: var(--header-height) var(--space-4) var(--space-8) calc(var(--sidebar-width) + var(--space-4));
+}
+
+.profile-header {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.profile-avatar {
+  width: var(--space-20);
+  height: var(--space-20);
+  border-radius: var(--radius-lg);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.danger-zone {
+  border: 2px solid var(--color-error);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+}
