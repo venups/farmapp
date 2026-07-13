@@ -13,6 +13,7 @@ Goals:
 - Stunning “modern classic” UI (refined typography, muted premium colors, smooth but subtle animations).
 - Features: trips with dates and destinations, daily itineraries, budgets, packing/prep checklists, and a dashboard showing trip status and checklist completion.
 - Everything must run locally on my machine with standard Python + Node tooling.
+- You should build multiple functionality similar to a professional wesbite with your best reasoning. Basic layout is not accetable.
 
 Constraints:
 
