@@ -7,13 +7,13 @@ export const packingService = {
     return data;
   },
 
-  async createItem(data: PackingItemCreate): Promise<PackingItem> {
-    const { data } = await api.post<PackingItem>('/packing', data);
+  async createItem(payload: PackingItemCreate): Promise<PackingItem> {
+    const { data } = await api.post<PackingItem>('/packing', payload);
     return data;
   },
 
-  async updateItem(itemId: string, data: PackingItemUpdate): Promise<PackingItem> {
-    const { data } = await api.put<PackingItem>(`/packing/${itemId}`, data);
+  async updateItem(itemId: string, payload: PackingItemUpdate): Promise<PackingItem> {
+    const { data } = await api.put<PackingItem>(`/packing/${itemId}`, payload);
     return data;
   },
 

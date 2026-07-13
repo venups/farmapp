@@ -25,7 +25,7 @@ export function ExpensesPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('tripforge_token');
         const [expRes, sumRes, tripRes] = await Promise.all([
           fetch(`/api/expenses/trip/${tripId}`, { headers: { Authorization: `Bearer ${token}` } }),
           fetch(`/api/expenses/trip/${tripId}/summary`, { headers: { Authorization: `Bearer ${token}` } }),
@@ -47,7 +47,7 @@ export function ExpensesPage() {
 
   const handleCreateExpense = async (data: any) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch('/api/expenses/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -66,7 +66,7 @@ export function ExpensesPage() {
 
   const handleUpdateExpense = async (data: any) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch(`/api/expenses/${editingExpense?.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -86,7 +86,7 @@ export function ExpensesPage() {
 
   const handleDeleteExpense = async (id: string) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       await fetch(`/api/expenses/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
@@ -136,7 +136,7 @@ export function ExpensesPage() {
 
       <ExpenseForm
         tripId={tripId!}
-        initialData={editingExpense ? { ...editingExpense, category: editingExpense.category, currency: editingExpense.currency } : undefined}
+        initialData={editingExpense ? { title: editingExpense.title, amount: editingExpense.amount, category: editingExpense.category, currency: editingExpense.currency, date: editingExpense.date, notes: editingExpense.notes ?? undefined, payment_method: editingExpense.payment_method ?? undefined } : undefined}
         onSubmit={editingExpense ? handleUpdateExpense : handleCreateExpense}
         isLoading={false}
         onCancel={() => { setShowForm(false); setEditingExpense(null); }}

@@ -34,6 +34,14 @@ api.interceptors.response.use(
         if (window.location.pathname !== '/login') {
           window.location.href = '/login';
         }
+      } else if (status === 422) {
+        const detail = error.response.data?.detail;
+        if (Array.isArray(detail)) {
+          const msgs = detail.map((e: any) => `${e.loc?.at(-1)}: ${e.msg}`).join('; ');
+          toast.error(msgs);
+        } else {
+          toast.error(message);
+        }
       } else if (status === 403) {
         toast.error('You do not have permission to perform this action.');
       } else if (status >= 500) {

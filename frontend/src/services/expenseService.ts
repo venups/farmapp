@@ -12,13 +12,13 @@ export const expenseService = {
     return data;
   },
 
-  async createExpense(data: ExpenseCreate): Promise<Expense> {
-    const { data } = await api.post<Expense>('/expenses', data);
+  async createExpense(payload: ExpenseCreate): Promise<Expense> {
+    const { data } = await api.post<Expense>('/expenses', payload);
     return data;
   },
 
-  async updateExpense(expenseId: string, data: ExpenseUpdate): Promise<Expense> {
-    const { data } = await api.put<Expense>(`/expenses/${expenseId}`, data);
+  async updateExpense(expenseId: string, payload: ExpenseUpdate): Promise<Expense> {
+    const { data } = await api.put<Expense>(`/expenses/${expenseId}`, payload);
     return data;
   },
 

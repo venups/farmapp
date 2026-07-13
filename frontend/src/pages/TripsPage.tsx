@@ -21,7 +21,7 @@ export function TripsPage() {
   useEffect(() => {
     const fetchTrips = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('tripforge_token');
         const res = await fetch('/api/trips/?per_page=50', {
           headers: { Authorization: `Bearer ${token}` },
         });

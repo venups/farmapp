@@ -20,7 +20,7 @@ export function ProfilePage() {
 
   const handleUpdateProfile = async () => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch('/api/users/profile', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -42,7 +42,7 @@ export function ProfilePage() {
       return;
     }
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch('/api/users/change-password', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },

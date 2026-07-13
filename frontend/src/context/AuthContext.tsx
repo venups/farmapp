@@ -73,9 +73,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       toast.success(`Welcome back, ${response.user.full_name}!`);
     } catch (error: any) {
       dispatch({ type: 'SET_LOADING', payload: false });
-      const message = error.response?.data?.detail || 'Login failed';
+      const detail = error.response?.data?.detail;
+      let message: string;
+      if (Array.isArray(detail)) {
+        message = detail.map((e: any) => e.msg).join('; ');
+      } else if (typeof detail === 'string') {
+        message = detail;
+      } else {
+        message = error.message || 'Login failed';
+      }
       toast.error(message);
-      throw error;
+      throw { ...error, message };
     }
   }, []);
 
@@ -88,9 +96,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       toast.success('Account created successfully!');
     } catch (error: any) {
       dispatch({ type: 'SET_LOADING', payload: false });
-      const message = error.response?.data?.detail || 'Registration failed';
+      const detail = error.response?.data?.detail;
+      let message: string;
+      if (Array.isArray(detail)) {
+        message = detail.map((e: any) => e.msg).join('; ');
+      } else if (typeof detail === 'string') {
+        message = detail;
+      } else {
+        message = error.message || 'Registration failed';
+      }
       toast.error(message);
-      throw error;
+      throw { ...error, message };
     }
   }, []);
 

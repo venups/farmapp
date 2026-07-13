@@ -26,7 +26,7 @@ export function TripDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('tripforge_token');
         const [tripRes, actRes] = await Promise.all([
           fetch(`/api/trips/${tripId}`, { headers: { Authorization: `Bearer ${token}` } }),
           fetch(`/api/activities/trip/${tripId}`, { headers: { Authorization: `Bearer ${token}` } }),
@@ -44,7 +44,7 @@ export function TripDetailPage() {
 
   const handleDelete = async () => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       await fetch(`/api/trips/${tripId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
@@ -157,7 +157,7 @@ function ItineraryContent({ tripId, activities }: { tripId: string; activities: 
             acc[day].push(act);
             return acc;
           }, {} as Record<number, Activity[]>)
-        ).sort(([a], [b]) => a - b).map(([day, dayActivities]) => (
+        ).sort(([a], [b]) => Number(a) - Number(b)).map(([day, dayActivities]) => (
           <div key={day} style={{ minWidth: 280, flex: 1, backgroundColor: 'var(--color-bg-card)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border)', padding: 16 }}>
             <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 12 }}>Day {day}</h3>
             {dayActivities.map((act) => (

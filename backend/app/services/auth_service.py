@@ -17,11 +17,11 @@ from app.utils.exceptions import (
 
 async def register_user(data: UserRegister) -> Tuple[User, str]:
     """Register a new user."""
-    existing_email = await User.find(User.email == data.email).first()
+    existing_email = await User.find_one(User.email == data.email)
     if existing_email:
         raise ConflictException("A user with this email already exists")
 
-    existing_username = await User.find(User.username == data.username).first()
+    existing_username = await User.find_one(User.username == data.username)
     if existing_username:
         raise ConflictException("A user with this username already exists")
 
@@ -42,7 +42,7 @@ async def register_user(data: UserRegister) -> Tuple[User, str]:
 
 async def login_user(data: UserLogin) -> Tuple[User, str]:
     """Authenticate a user."""
-    user = await User.find(User.email == data.email).first()
+    user = await User.find_one(User.email == data.email)
     if not user:
         raise UnauthorizedException("Invalid email or password")
 

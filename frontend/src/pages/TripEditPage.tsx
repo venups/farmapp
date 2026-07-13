@@ -16,7 +16,7 @@ export function TripEditPage() {
   useEffect(() => {
     const fetchTrip = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('tripforge_token');
         const res = await fetch(`/api/trips/${tripId}`, { headers: { Authorization: `Bearer ${token}` } });
         if (res.ok) {
           const trip = await res.json();
@@ -39,7 +39,7 @@ export function TripEditPage() {
   const handleSubmit = async (data: TripUpdate) => {
     setIsLoading(true);
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch(`/api/trips/${tripId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },

@@ -20,7 +20,7 @@ export function PackingPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('tripforge_token');
         const res = await fetch(`/api/packing/trip/${tripId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -34,7 +34,7 @@ export function PackingPage() {
 
   const handleCreateItem = async (data: any) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch('/api/packing/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -51,7 +51,7 @@ export function PackingPage() {
 
   const handleUpdateItem = async (data: any) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch(`/api/packing/${editingItem?.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -69,7 +69,7 @@ export function PackingPage() {
 
   const handleToggle = async (id: string) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       await fetch(`/api/packing/${id}/toggle`, {
         method: 'PATCH',
         headers: { Authorization: `Bearer ${token}` },
@@ -82,7 +82,7 @@ export function PackingPage() {
 
   const handleDeleteItem = async (id: string) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       await fetch(`/api/packing/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
@@ -109,7 +109,9 @@ export function PackingPage() {
       </div>
 
       {packingData && (
-        <ProgressBar value={packingData.progress_percent} showLabel size="md" style={{ marginBottom: 24 }} />
+        <div style={{ marginBottom: 24 }}>
+          <ProgressBar value={packingData.progress_percent} showLabel size="md" />
+        </div>
       )}
 
       {packingData && Object.entries(packingData.by_category).map(([category, items]) => {
@@ -135,7 +137,7 @@ export function PackingPage() {
 
       <PackingForm
         tripId={tripId!}
-        initialData={editingItem ? { ...editingItem, category: editingItem.category } : undefined}
+        initialData={editingItem ? { name: editingItem.name, category: editingItem.category, quantity: editingItem.quantity, is_essential: editingItem.is_essential, notes: editingItem.notes ?? undefined } : undefined}
         onSubmit={editingItem ? handleUpdateItem : handleCreateItem}
         isLoading={false}
         onCancel={() => { setShowForm(false); setEditingItem(null); }}

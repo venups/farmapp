@@ -19,7 +19,7 @@ export function ItineraryPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('tripforge_token');
         const [tripRes, actRes] = await Promise.all([
           fetch(`/api/trips/${tripId}`, { headers: { Authorization: `Bearer ${token}` } }),
           fetch(`/api/activities/trip/${tripId}`, { headers: { Authorization: `Bearer ${token}` } }),
@@ -37,7 +37,7 @@ export function ItineraryPage() {
 
   const handleCreateActivity = async (data: any) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch('/api/activities/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -56,7 +56,7 @@ export function ItineraryPage() {
 
   const handleUpdateActivity = async (data: any) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch(`/api/activities/${editingActivity?.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
@@ -76,7 +76,7 @@ export function ItineraryPage() {
 
   const handleDeleteActivity = async (id: string) => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       await fetch(`/api/activities/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
@@ -131,7 +131,7 @@ export function ItineraryPage() {
         tripId={tripId!}
         dayNumber={selectedDay}
         totalDays={totalDays}
-        initialData={editingActivity ? { ...editingActivity, category: editingActivity.category, day_number: editingActivity.day_number } : undefined}
+        initialData={editingActivity ? { title: editingActivity.title, category: editingActivity.category, day_number: editingActivity.day_number, description: editingActivity.description ?? undefined, start_time: editingActivity.start_time ?? undefined, end_time: editingActivity.end_time ?? undefined, location_name: editingActivity.location_name ?? undefined, address: editingActivity.address ?? undefined, estimated_cost: editingActivity.estimated_cost ?? undefined, booking_url: editingActivity.booking_url ?? undefined, notes: editingActivity.notes ?? undefined, image_url: editingActivity.image_url ?? undefined } : undefined}
         onSubmit={editingActivity ? handleUpdateActivity : handleCreateActivity}
         isLoading={false}
         onCancel={() => { setShowForm(false); setEditingActivity(null); }}

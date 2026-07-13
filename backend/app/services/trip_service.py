@@ -128,7 +128,7 @@ async def add_collaborator(trip_id: str, owner_id: str, collaborator_email: str)
     if trip.owner_id != PydanticObjectId(owner_id):
         raise ForbiddenException("Only the trip owner can add collaborators")
 
-    user = await User.find(User.email == collaborator_email).first()
+    user = await User.find_one(User.email == collaborator_email)
     if not user:
         raise NotFoundException(f"No user found with email {collaborator_email}")
 

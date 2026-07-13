@@ -12,7 +12,7 @@ export function TripCreatePage() {
   const handleSubmit = async (data: TripCreate) => {
     setIsLoading(true);
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('tripforge_token');
       const res = await fetch('/api/trips/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },

@@ -19,12 +19,12 @@ export function ExpenseChart({ summary }: ExpenseChartProps) {
         {pieData.length > 0 ? (
           <ResponsiveContainer width="100%" height={280}>
             <PieChart>
-              <Pie data={pieData} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}>
+              <Pie data={pieData} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ name, percent }: any) => `${name} ${((percent ?? 0) * 100).toFixed(0)}%`}>
                 {pieData.map((_entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip formatter={(value: number) => [`$${value.toFixed(2)}`, 'Amount']} />
+              <Tooltip formatter={(value) => [`$${(Number(value) || 0).toFixed(2)}`, 'Amount']} />
             </PieChart>
           </ResponsiveContainer>
         ) : (
@@ -38,7 +38,7 @@ export function ExpenseChart({ summary }: ExpenseChartProps) {
             <BarChart data={barData}>
               <XAxis dataKey="date" tick={{ fontSize: 11, fill: '#94A3B8' }} />
               <YAxis tick={{ fontSize: 11, fill: '#94A3B8' }} />
-              <Tooltip formatter={(value: number) => [`$${value.toFixed(2)}`, 'Amount']} />
+              <Tooltip formatter={(value) => [`$${(Number(value) || 0).toFixed(2)}`, 'Amount']} />
               <Bar dataKey="amount" fill="#6366F1" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>

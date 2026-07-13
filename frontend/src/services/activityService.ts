@@ -17,8 +17,8 @@ export const activityService = {
     return data;
   },
 
-  async updateActivity(activityId: string, data: ActivityUpdate): Promise<Activity> {
-    const { data } = await api.put<Activity>(`/activities/${activityId}`, data);
+  async updateActivity(activityId: string, payload: ActivityUpdate): Promise<Activity> {
+    const { data } = await api.put<Activity>(`/activities/${activityId}`, payload);
     return data;
   },
 

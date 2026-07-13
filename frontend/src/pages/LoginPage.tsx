@@ -20,7 +20,7 @@ export function LoginPage() {
     e.preventDefault();
     setIsLoading(true);
     try {
-      await login(email, password);
+      await login({ email, password });
       navigate(from, { replace: true });
       toast.success('Welcome back!');
     } catch (err: any) {
