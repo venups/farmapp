@@ -35,16 +35,18 @@ const TripForm = () => {
       <h1>Plan New Trip</h1>
       <form onSubmit={handleSubmit} className="trip-form">
         <div className="form-group">
-          <label>Trip Name</label>
+          <label htmlFor="name">Trip Name</label>
           <input 
+            id="name"
             required 
             value={formData.name} 
             onChange={e => setFormData({...formData, name: e.target.value})} 
           />
         </div>
         <div className="form-group">
-          <label>Destinations (comma separated)</label>
+          <label htmlFor="destinations">Destinations (comma separated)</label>
           <input 
+            id="destinations"
             required 
             value={formData.destinations} 
             onChange={e => setFormData({...formData, destinations: e.target.value})} 
@@ -52,8 +54,9 @@ const TripForm = () => {
         </div>
         <div className="form-row">
           <div className="form-group">
-            <label>Start Date</label>
+            <label htmlFor="start_date">Start Date</label>
             <input 
+              id="start_date"
               type="date" 
               required 
               value={formData.start_date} 
@@ -61,8 +64,9 @@ const TripForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>End Date</label>
+            <label htmlFor="end_date">End Date</label>
             <input 
+              id="end_date"
               type="date" 
               required 
               value={formData.end_date} 
@@ -71,8 +75,9 @@ const TripForm = () => {
           </div>
         </div>
         <div className="form-group">
-          <label>Notes</label>
+          <label htmlFor="notes">Notes</label>
           <textarea 
+            id="notes"
             value={formData.notes} 
             onChange={e => setFormData({...formData, notes: e.target.value})} 
           />
