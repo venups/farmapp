@@ -1,0 +1,653 @@
+/* Travel Planner - Design System */
+/* 
+   Color Palette:
+   - #1a365d (Deep Navy) - Primary brand color, conveys trust and adventure
+   - #2b6cb0 (Sky Blue) - Secondary accent, evokes travel/sky
+   - #f7fafc (Off White) - Background, clean and airy
+   - #e2e8f0 (Light Gray) - Borders and subtle dividers
+   - #4a5568 (Slate Gray) - Body text
+   - #171923 (Near Black) - Headings
+   - #c53030 (Muted Red) - Destructive actions
+   - #38a169 (Forest Green) - Success/checked states
+*/
+
+/* Typography:
+   - Display: system-ui, -apple-system, sans-serif (clean modern headers)
+   - Body: system-ui, -apple-system, sans-serif (consistent utility)
+   - Data/Mono: ui-monospace, SFMono-Regular, monospace (for amounts/dates)
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f7fafc;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.5em;
+  color: #171923;
+  font-weight: 600;
+}
+
+a {
+  color: #2b6cb0;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75em 1.25em;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: none;
+}
+
+.btn:focus {
+  outline: 2px solid #2b6cb0;
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: #1a365d;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #2b6cb0;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #4a5568;
+  border: 1px solid #e2e8f0;
+}
+
+.btn-secondary:hover {
+  background-color: #edf2f7;
+}
+
+.btn-danger {
+  background-color: #c53030;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #9b2c2c;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn.small {
+  padding: 0.5em 1em;
+  font-size: 0.875rem;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 0.25em 0.5em;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.btn-icon:hover {
+  color: #c53030;
+}
+
+/* Layout */
+.dashboard {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+/* Status Summary */
+.status-summary {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.status-card {
+  flex: 1;
+  padding: 1.25rem;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status-label {
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.status-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a365d;
+}
+
+/* Trip Cards */
+.trip-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.trip-card {
+  display: block;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.trip-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.trip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.trip-card h2 {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.trip-destinations {
+  color: #718096;
+  font-size: 0.9375rem;
+  margin-bottom: 0.25rem;
+}
+
+.trip-dates {
+  color: #a0aec0;
+  font-size: 0.875rem;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25em 0.75em;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.status-badge.upcoming {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+}
+
+.status-badge.active {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+
+.status-badge.completed {
+  background-color: #edf2f7;
+  color: #718096;
+}
+
+/* Empty States */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #a0aec0;
+}
+
+.empty-state p {
+  margin-bottom: 1rem;
+}
+
+/* Loading & Error */
+.loading, .error {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.error {
+  color: #c53030;
+}
+
+/* Trip Detail Page */
+.trip-detail {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.trip-header-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.trip-info-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.trip-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.trip-title-section h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.trip-meta {
+  display: grid;
+  gap: 0.5rem;
+  color: #4a5568;
+}
+
+.meta-item {
+  font-size: 0.9375rem;
+}
+
+.trip-notes {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  color: #718096;
+  font-size: 0.9375rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  padding: 0.75em 1.25em;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  color: #718096;
+  transition: all 0.15s ease;
+}
+
+.tab:hover {
+  color: #4a5568;
+}
+
+.tab.active {
+  color: #1a365d;
+  border-bottom-color: #1a365d;
+}
+
+/* Progress Bar */
+.progress-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid #e2e8f0;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0.75rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #38a169;
+  transition: width 0.3s ease;
+}
+
+/* Itinerary Tab */
+.itinerary-tab, .budget-tab, .checklist-tab {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.add-day-form, .add-budget-form, .add-item-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.add-day-form input[type="date"],
+.add-budget-form select,
+.add-budget-form input,
+.add-item-form input {
+  padding: 0.625em 0.875em;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+}
+
+.add-day-form input,
+.add-budget-form select,
+.add-budget-form input[type="text"],
+.add-item-form input {
+  flex: 1;
+  min-width: 150px;
+}
+
+.add-budget-form input[type="number"] {
+  width: 120px;
+}
+
+.itinerary-days {
+  display: grid;
+  gap: 1rem;
+}
+
+.itinerary-day-card {
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 6px;
+  border-left: 3px solid #2b6cb0;
+}
+
+.itinerary-day-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.activities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activities-list li {
+  padding: 0.25em 0;
+  font-size: 0.9375rem;
+}
+
+.activity-time {
+  color: #718096;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  margin-right: 0.5em;
+}
+
+/* Budget Table */
+.budget-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.budget-table th,
+.budget-table td {
+  padding: 0.75em;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.budget-table th {
+  font-weight: 600;
+  color: #4a5568;
+  background: #f7fafc;
+}
+
+.category-badge {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  background: #edf2f7;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  text-transform: capitalize;
+}
+
+/* Checklist */
+.checklist-section {
+  margin-bottom: 2rem;
+}
+
+.checklist-section:last-child {
+  margin-bottom: 0;
+}
+
+.checklist-section h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.checklist-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625em 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.checklist-item:last-child {
+  border-bottom: none;
+}
+
+.checklist-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.checklist-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checklist-item.checked label {
+  text-decoration: line-through;
+  color: #a0aec0;
+}
+
+/* Trip Form Page */
+.trip-form-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-header h1 {
+  margin: 0;
+}
+
+.trip-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.trip-form label {
+  display: block;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+}
+
+.trip-form input[type="text"],
+.trip-form input[type="date"],
+.trip-form textarea,
+.trip-form select {
+  width: 100%;
+  padding: 0.75em 1em;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.trip-form input:focus,
+.trip-form textarea:focus,
+.trip-form select:focus {
+  outline: none;
+  border-color: #2b6cb0;
+  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
+}
+
+.trip-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.destination-input-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.destination-input-row input {
+  flex: 1;
+}
+
+.remove-btn {
+  color: #a0aec0;
+}
+
+.remove-btn:hover {
+  color: #c53030;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field-error {
+  display: block;
+  color: #c53030;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.error-message {
+  background-color: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+  padding: 0.75em 1em;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .status-summary {
+    flex-direction: column;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .add-day-form,
+  .add-budget-form,
+  .add-item-form {
+    flex-direction: column;
+  }
+
+  .add-day-form input[type="date"],
+  .add-budget-form select,
+  .add-budget-form input,
+  .add-item-form input {
+    width: 100%;
+  }
+
+  .budget-table {
+    font-size: 0.8125rem;
+  }
+
+  .budget-table th,
+  .budget-table td {
+    padding: 0.5em;
+  }
+
+  .tabs {
+    overflow-x: auto;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
