@@ -1,0 +1,8 @@
+# Backend dependencies
+fastapi==0.115.0
+uvicorn==0.32.0
+pydantic==2.9.2
+pymongo==4.6.1  # Using older version with Motor fallback
+motor==3.3.2    # Async MongoDB driver as fallback
+mongomock==4.3.0
+python-dotenv==1.0.1
