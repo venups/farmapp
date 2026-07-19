@@ -7,8 +7,8 @@
 - [x] Stage 3 — Frontend (routing, API client, core components)
 - [x] Stage 4 — Styling (design-system pass)
 - [x] Stage 5 — Testing (backend pytest + frontend Vitest)
-- [ ] Stage 6 — Docs (README, RUN_DATA, final logs)
-- [ ] Final validation
+- [x] Stage 6 — Docs (README, RUN_DATA, final logs)
+- [x] Final validation
 
 ## Entries
 
@@ -46,4 +46,17 @@
 - `python -m pytest` → **14 passed** on first run.
 - Frontend: `src/__tests__/TripForm.test.jsx` (creation flow incl. navigation, end-before-start client validation, multi-destination) and `ChecklistSection.test.jsx` (packing/prep split, toggle on/off, add, delete), with the api module mocked. Added `"test": "vitest run"` script.
 - Failure #1: 2 checklist tests failed — `getByLabelText(/rain jacket/i)` matched both the checkbox and the "Delete Rain jacket" button's aria-label. Diagnosis: ambiguous accessible-name query. Fix: query `getByRole("checkbox", { name: ... })`. Re-run → **7 passed**.
-- Result: full suite green — 21 tests total.
+- Result: full suite green — 21 tests total. Committed `33b4608`.
+
+### 2026-07-19 ~08:46 — Stage 6: docs
+- Rewrote README.md in the required order: prerequisites, env-var table matching `.env.example`, install steps (backend venv + `npm install`), exact run commands (backend 8000, frontend 5173), test commands, manual e2e walkthrough, project layout.
+- Wrote RUN_DATA.md from observed data (counts from `wc -l` and `git log`).
+- Result: OK.
+
+### 2026-07-19 ~08:48 — Final validation (all steps run, not eyeballed)
+1. `cp .env.example .env`, then started both servers with the exact README commands: backend `../.venv/bin/python -m uvicorn app.main:app --port 8000` (health check returned `{"status":"ok"}`), frontend `npm run dev` (Vite ready, served the app title on :5173). No errors in either log.
+2. Manual e2e over the API: created trip "Autumn in Portugal" (Lisbon, Porto), added a packing item and a prep item, checked one off; **killed and restarted the backend**; both items returned intact afterward, and `backend/data/store.json` contained 1 trip + 2 checklist items. Dashboard showed `{'Upcoming': 1}` and checklist 1/2 = 50%.
+3. Re-ran both suites with the README commands: pytest **14 passed**, Vitest **7 passed**.
+4. README commands verified by execution in steps 1–3 (the same commands, run as written).
+5. Servers stopped.
+- Result: **Validation complete.**
